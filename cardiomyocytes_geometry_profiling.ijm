@@ -10,8 +10,8 @@
 
 /************* parameters *************/
 thresholdMethod = "Li"; // threshold method
-minCellArea = 5000; // minimum area of a cell - used to filter small particles or partially detected cells
-minNucleiArea = 10; // minimum area of a nucleus - used to filter small particles or partially detected nuclei
+minCellArea = 50000; // minimum area of a cell - used to filter small particles or partially detected cells
+minNucleiArea = 10000; // minimum area of a nucleus - used to filter small particles or partially detected nuclei
 /**************************************/
 
 // define the path of the input directory, e.g., Y:/Users/images/input/. This directory should contain subfolders corresponding to the different experimental conditions
