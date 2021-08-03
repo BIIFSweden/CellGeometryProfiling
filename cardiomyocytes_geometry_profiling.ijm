@@ -104,26 +104,10 @@ for(count=0; count<folders.length; count++) {
 			setBackgroundColor(0, 0, 0);
 			run("Clear Outside");
 
-			// count nuclei
-			run("Select None");
-			run("Analyze Particles...", "size=0-" + minNucleiArea + " show=Masks exclude clear summarize add");
-
-			Table.rename("Summary", "Results");
-			countNuclei = getResult("Count", 0);
-
-			selectWindow("image-0003");
-			run("From ROI Manager");
-			saveAs("Tiff", outPath + "nuclei_" + file);
-
-			selectWindow("Results"); 
-			run("Close");
-			selectWindow("ROI Manager"); 
-			run("Close");
-
 			run("Close All");
 
 			// save measures to buffer
-			bufferMeasures = bufferMeasures + folders[count] + ";" + file + ";" + tot_area + ";" + countNuclei + "\n";
+			bufferMeasures = bufferMeasures + folders[count] + ";" + file + ";" + tot_area + "\n";
 		}
 	}
 }
