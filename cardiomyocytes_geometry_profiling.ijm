@@ -35,7 +35,7 @@ for(count=0; count<folders.length; count++) {
 		if(!startsWith(file, "overlay")) { // ignore overlay folder, which is created to store results
 			
 			// process different input formats of the image files
-			if(matches(folders[count],"Control") || matches(folders[count], "NAC"))
+			if(matches(folders[count],"Control") || matches(folders[count], "NAC1"))
 				run("Bio-Formats Importer", "open=[" + path + folders[count] + "/" + file + "] color_mode=Default view=Hyperstack stack_order=XYZCT");
 			else
 				open(path + folders[count] + "/" + file);
