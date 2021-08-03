@@ -29,6 +29,8 @@ After adjusting the parameters, press the “Run” button and wait until all im
 * Files containing the measurements of each segmented particle and for each processed file.
 *	A folder named “output” containing the segmentation results for each processed file, as illustrated below.
 
+![Cell segmentation](img/figure.png "Title Text")
+
 Note: the nomenclature of the output folders and files contains a combination of the selected parameter values. 
 
 
