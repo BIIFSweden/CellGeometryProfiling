@@ -11,22 +11,21 @@
 /************* parameters *************/
 thresholdMethod = "Li"; // threshold method
 minCellArea = 50000; // minimum area of a cell - used to filter small particles or partially detected cells
-minNucleiArea = 10000; // minimum area of a nucleus - used to filter small particles or partially detected nuclei
 /**************************************/
 
-// define the path of the input directory, e.g., Y:/Users/images/input/. This directory should contain subfolders corresponding to the different experimental conditions
+// define the path of the input directory, e.g., C:/Users/images/input/. This directory should contain subfolders corresponding to the different experimental conditions
 path = "";
 // define the names of the input folders corresponding to the different experimental groups
 folders = newArray("Control","NAC","SF");
 // buffer of measures to be saved in an output csv file
-bufferMeasures = "Group;File name;Total Area;Nuclei Count\n";
+bufferMeasures = "Group;File name;Total Area\n";
 
 // for all input folders
 for(count=0; count<folders.length; count++) {
 	files = getFileList(path + folders[count]);
 
 	// create output path - nomenclature is a combination of the input parameters
-	outPath = path + folders[count] + "/overlay_thr-" + thresholdMethod + "_minCellArea-" + minCellArea + "_minNucleiArea-" + minNucleiArea + "/";
+	outPath = path + folders[count] + "/overlay_thr-" + thresholdMethod + "_minCellArea-" + minCellArea + "/";
     File.makeDirectory(outPath);
 
 	// iterate over all images of the selected folder
@@ -36,7 +35,7 @@ for(count=0; count<folders.length; count++) {
 		if(!startsWith(file, "overlay")) { // ignore overlay folder, which is created to store results
 			
 			// process different input formats of the image files
-			if(matches(folders[count],"Control-tiff") || matches(folders[count], "NAC1-tiff"))
+			if(matches(folders[count],"Control") || matches(folders[count], "NAC"))
 				run("Bio-Formats Importer", "open=[" + path + folders[count] + "/" + file + "] color_mode=Default view=Hyperstack stack_order=XYZCT");
 			else
 				open(path + folders[count] + "/" + file);
@@ -83,27 +82,6 @@ for(count=0; count<folders.length; count++) {
 			selectWindow("ROI Manager"); 
 			run("Close");
 
-			// process nuclei channel
-			selectWindow("image-0003");
-			run("Set Scale...", "distance=0 known=0 unit=pixel");
-			run("Grays");
-			run("Duplicate...", "image-0003_mask");
-			rename("image-0003_mask");
-			run("Enhance Contrast", "saturated=0.35");
-			run("Apply LUT");
-			run("Median...", "radius=4");
-			setAutoThreshold(thresholdMethod + " dark");
-			run("Convert to Mask");
-
-			selectWindow("Mask of image-0001_mask");
-			setOption("BlackBackground", true);
-			run("Convert to Mask");
-			run("Create Selection");
-			selectWindow("image-0003_mask");
-			run("Restore Selection"); // eliminate nuclei that are outside the segmented cells
-			setBackgroundColor(0, 0, 0);
-			run("Clear Outside");
-
 			run("Close All");
 
 			// save measures to buffer
@@ -113,7 +91,7 @@ for(count=0; count<folders.length; count++) {
 }
 
 // save buffer to csv file
-summaryPath = path + "summaryMeasures_thr-" + thresholdMethod + "_minCellArea-" + minCellArea + "_minNucleiArea-" + minNucleiArea + ".csv";
+summaryPath = path + "summaryMeasures_thr-" + thresholdMethod + "_minCellArea-" + minCellArea + ".csv";
 if(File.exists(summaryPath))
 	File.delete(summaryPath);
 
