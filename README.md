@@ -15,9 +15,9 @@ The software listed below should be installed before running the Fiji script.
 
 #### 3.	Running the pipeline
 
-To run the pipeline, open Fiji and go to Plugins – Macros – Edit... and browse the *cardiomyocytes_geometry_profiling.ijm* file. Two parameters can be modified in the pipeline: 
+To run the pipeline, open Fiji and go to Plugins – Macros – Edit... and browse the *cardiomyocytes_geometry_profiling.ijm* file to load the script. Two parameters can be modified in the pipeline: 
 
-* thresholdMethod: corresponds to selected threshold method. Default is set to Li’s Minimum Cross Entropy
+* thresholdMethod: selected threshold method. Default is set to Li’s Minimum Cross Entropy
 * minCellArea: minimum area in pixels of a particle to be considered in the analysis
 
 After adjusting the parameters, press the “Run” button and wait until all images are processed. During the execution of the pipeline, the “Run” button will be disabled.
@@ -25,7 +25,11 @@ After adjusting the parameters, press the “Run” button and wait until all im
 
 #### 4.	Ouput files
 
+* A summary file (*csv format*) saved in the input directory containing the total cell area for each processed file.
+* Files containing the measurements of each segmented particle and for each processed file.
+*	A folder named “output” containing the segmentation results for each processed file, as illustrated below.
 
+Note: the nomenclature of the output folders and files contains a combination of the selected parameter values. 
 
 
 
