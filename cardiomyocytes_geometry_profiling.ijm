@@ -17,7 +17,7 @@ minNucleiArea = 10000; // minimum area of a nucleus - used to filter small parti
 // define the path of the input directory, e.g., Y:/Users/images/input/. This directory should contain subfolders corresponding to the different experimental conditions
 path = "";
 // define the names of the input folders corresponding to the different experimental groups
-folders = newArray("Control-tiff","Control-tiff2","NAC1-tiff","NAC2-tiff","SF-tiff");
+folders = newArray("Control","NAC","SF");
 // buffer of measures to be saved in an output csv file
 bufferMeasures = "Group;File name;Total Area;Nuclei Count\n";
 
