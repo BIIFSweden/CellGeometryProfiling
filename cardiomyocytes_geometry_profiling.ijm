@@ -1,7 +1,7 @@
 
 // ===============================
 // AUTHOR : Gisele Miranda
-// IVESTIGATORS : Christer Betsholtz, Zaher Elbeck
+// IVESTIGATORS : Zaher Elbeck, Christer Betsholtz
 // CREATE DATE : 2021 - 05 - 12
 // PURPOSE : Cell's geometry profiling for neonatal rat cardiomyocytes in 2D culture
 // NOTES : Fiji required - https://fiji.sc, 
