@@ -46,7 +46,7 @@ Note: the nomenclature of the output folders and files contains a combination of
 
 ## Licence
 
-[MIT]
+[MIT](https://github.com/BIIFSweden/CellGeometryProfiling/blob/main/LICENSE)
 
 ## DOI
 
