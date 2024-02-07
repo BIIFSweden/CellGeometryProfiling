@@ -49,6 +49,6 @@ Note: the nomenclature of the output folders and files contains a combination of
 [MIT](https://github.com/BIIFSweden/CellGeometryProfiling/blob/main/LICENSE)
 
 ## DOI
-
+[![DOI](https://zenodo.org/badge/389618820.svg)](https://zenodo.org/doi/10.5281/zenodo.10631363)
 
 
